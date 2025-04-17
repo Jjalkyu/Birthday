@@ -1,0 +1,17 @@
+{{> layout/header}}
+
+<h2 class="mb-4">🎂 생일 등록</h2>
+
+<form action="/save" method="post">
+    <div class="mb-3">
+        <label class="form-label">이름</label>
+        <input type="text" name="name" class="form-control" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">생일</label>
+        <input type="date" name="birthDate" class="form-control" required>
+    </div>
+    <button type="submit" class="btn btn-success">등록하기</button>
+</form>
+
+{{> layout/footer}}

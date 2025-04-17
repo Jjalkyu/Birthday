@@ -1,0 +1,48 @@
+{{> layout/header}}
+
+<h2 class="mb-3">🎉 생일 알림</h2>
+
+{{#alerts}}
+    <div class="alert alert-warning">{{.}}</div>
+{{/alerts}}
+
+{{^alerts}}
+    <div class="alert alert-info">곧 생일인 사용자가 없습니다.</div>
+{{/alerts}}
+
+<hr>
+
+<h2 class="mt-4">📋 전체 생일 목록</h2>
+
+<table class="table table-bordered table-hover mt-3">
+    <thead class="table-light">
+    <tr>
+        <th>이름</th>
+        <th>생일</th>
+        <th>D-Day</th>
+        <th>관리</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#birthdays}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{birthDate}}</td>
+            <td>{{daysLeftText}}</td>
+            <td>
+                <a href="/edit/{{id}}" class="btn btn-sm btn-outline-primary">수정</a>
+                <a href="/delete/{{id}}" class="btn btn-sm btn-outline-danger"
+                   onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
+            </td>
+        </tr>
+    {{/birthdays}}
+
+    {{^birthdays}}
+        <tr>
+            <td colspan="5" class="text-center">등록된 생일이 없습니다.</td>
+        </tr>
+    {{/birthdays}}
+    </tbody>
+</table>
+
+{{> layout/footer}}

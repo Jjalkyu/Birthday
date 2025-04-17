@@ -1,0 +1,18 @@
+{{> layout/header}}
+
+<h2 class="mb-4">✏️ 생일 수정</h2>
+
+<form action="/update" method="post">
+    <input type="hidden" name="id" value="{{user.id}}">
+    <div class="mb-3">
+        <label class="form-label">이름</label>
+        <input type="text" name="name" class="form-control" value="{{user.name}}" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">생일</label>
+        <input type="date" name="birthDate" class="form-control" value="{{user.birthDate}}" required>
+    </div>
+    <button type="submit" class="btn btn-primary">수정하기</button>
+</form>
+
+{{> layout/footer}}
